@@ -26,3 +26,34 @@ export const getAllUsersController = async (req, res) => {
     }
 }
 
+export const updateUserPasswordController = async (req, res) => {
+    try {
+        const { password } = req.body;
+        const updatePassword = await UserModel.updateUserPasswordModel(req.params.id, { password });
+        if (!updatePassword) {
+            res.status(404).json({ message: "user not found" })
+        }
+        else {
+            res.status(200).json({ messag: "password has been updated" })
+        }
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message })
+    }
+}
+
+export const deleteUserController = async (req, res) => {
+    try {
+        const delte = await UserModel.deleteUserModel(req.params.id);
+        if (!delte) {
+            res.status(404).json({ message: "user not found" })
+        }
+        else {
+            res.status(200).json({ messag: "user has been deleted" })
+        }
+    }
+    catch (err) {
+        res.status(500).json({ error: err.message })
+    }
+}
+
