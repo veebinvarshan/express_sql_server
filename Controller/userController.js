@@ -34,7 +34,7 @@ export const updateUserPasswordController = async (req, res) => {
             res.status(404).json({ message: "user not found" })
         }
         else {
-            res.status(200).json({ messag: "password has been updated" })
+            res.status(200).json({ message: "password has been updated" })
         }
     }
     catch (err) {
@@ -49,7 +49,7 @@ export const deleteUserController = async (req, res) => {
             res.status(404).json({ message: "user not found" })
         }
         else {
-            res.status(200).json({ messag: "user has been deleted" })
+            res.status(200).json({ message: "user has been deleted" })
         }
     }
     catch (err) {
